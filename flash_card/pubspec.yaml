@@ -1,0 +1,49 @@
+name: flash_card
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.6 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod:
+  riverpod_annotation:
+  flutter_hooks:
+  hooks_riverpod:
+  freezed_annotation:
+  google_fonts:
+  flutter_tts:
+  go_router:
+  device_preview:
+  http:
+  cupertino_icons: ^1.0.2
+  uuid:
+  intl: ^0.18.1
+  transparent_image: ^2.0.1
+  carousel_slider:
+  drift:
+  sqlite3_flutter_libs:
+  path_provider:
+  path:
+  page_flip:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  freezed:
+  riverpod_generator:
+  flutter_lints: ^2.0.0
+  drift_dev:
+  build_runner:
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/blue_flashcard_icon.png
+    - assets/images/red_flashcard_icon.png
+    - assets/images/yellow_flashcard_icon.png
