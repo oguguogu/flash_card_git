@@ -35,10 +35,12 @@ class VocabularyBook extends HookConsumerWidget {
             id: id,
             word: word.word,
             meaning: word.meaning,
+            partOfSpeech: word.partOfSpeech,
             pronunciation: word.pronunciation,
             level: word.level,
             origin: word.origin,
             collocation: word.collocation,
+            derivatives: word.derivatives,
             example: word.example,
           );
         }).toList(),

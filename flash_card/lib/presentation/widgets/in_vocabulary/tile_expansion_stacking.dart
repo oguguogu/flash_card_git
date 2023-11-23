@@ -7,19 +7,23 @@ class TileExpansionStacking extends StatelessWidget {
       {super.key,
       required this.id,
       required this.word,
+      required this.partOfSpeech,
       required this.meaning,
       required this.pronunciation,
       required this.level,
       required this.origin,
       required this.collocation,
+      required this.derivatives,
       required this.example});
   final int id;
   final String word;
+  final String partOfSpeech;
   final String meaning;
   final String pronunciation;
   final String level;
   final String origin;
   final String collocation;
+  final String? derivatives;
   final String example;
 
   @override
@@ -65,7 +69,8 @@ class TileExpansionStacking extends StatelessWidget {
         Positioned(
           right: screenWidth * 0.01,
           top: 45,
-          child: Text(origin, style: const TextStyle(fontSize: 8)),
+          child: Text(origin == " 語源は不明です。" ? "" : origin,
+              style: const TextStyle(fontSize: 8)),
         ),
       ],
     );

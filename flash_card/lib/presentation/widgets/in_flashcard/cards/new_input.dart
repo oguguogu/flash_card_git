@@ -49,7 +49,7 @@ class NewInput extends HookConsumerWidget {
         repeatAnimationController.repeat();
         debugPrint(
             '1Effect triggered with waitingGpt: $waitingGpt, responseState: $responseState');
-      } else if (response.length == 6) {
+      } else if (response.length == 8) {
         debugPrint(
             '2Effect triggered with waitingGpt: $waitingGpt, responseState: $responseState');
         repeatAnimationController.forward(from: 0).then((_) {
@@ -69,7 +69,7 @@ class NewInput extends HookConsumerWidget {
     }, [waitingGpt, responseState]);
 
     useEffect(() {
-      if (!waitingGpt && response.length == 6) {
+      if (!waitingGpt && response.length == 8) {
         Future.delayed(const Duration(milliseconds: 500), () async {
           debugPrint(
               '3Effect triggered with waitingGpt: $waitingGpt, responseState: $responseState');
@@ -90,6 +90,8 @@ class NewInput extends HookConsumerWidget {
               response[3],
               response[4],
               response[5],
+              response[6],
+              response[7],
               0);
           debugPrint('Data added successfully: $result');
           Future.delayed(const Duration(milliseconds: 650), () {

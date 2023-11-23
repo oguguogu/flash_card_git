@@ -16,13 +16,9 @@ Future<void> sendWordToGPT(BuildContext context, WidgetRef ref,
         'Content-Type': 'application/json',
       },
       body: jsonEncode({
-        "model": "ft:gpt-3.5-turbo-0613:personal::8Hz70ef7",
+        "model": wordCreateModel2,
         "messages": [
-          {
-            "role": "system",
-            "content":
-                "You are a Japanese assistant that provides definitions, pronunciations, levels, collocations, example sentences, and etymologies for English words separated by semicolons."
-          },
+          {"role": "system", "content": wordCreateSystem2},
           {
             "role": "user",
             "content": "What does the word '${controller.text}' mean?",
@@ -52,15 +48,18 @@ Future<void> sendWordToGPT(BuildContext context, WidgetRef ref,
 
   if (responseState != null && responseState.contains(";")) {
     List<String> response = responseState.split(';');
-    if (response.length == 6) {
+    if (response.length == 8) {
       final word = Word(
+        id: null,
         word: controller.text,
         meaning: response[0],
-        pronunciation: response[1],
-        level: response[2],
-        collocation: response[3],
-        example: response[4],
-        origin: response[5],
+        partOfSpeech: response[1],
+        pronunciation: response[2],
+        level: response[3],
+        collocation: response[4],
+        example: response[5],
+        derivatives: response[6],
+        origin: response[7],
         memorizedType: 0,
       );
       ref.read(wordListsProvider.notifier).state = [
@@ -68,7 +67,7 @@ Future<void> sendWordToGPT(BuildContext context, WidgetRef ref,
         ...ref.read(wordListsProvider),
       ];
     } else {
-      debugPrint('response.length != 6');
+      debugPrint('response.length != 8');
       ref.read(errorGptProvider.notifier).state = true;
     }
   } else {

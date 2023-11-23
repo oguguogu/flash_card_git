@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flash_card/presentation/provider/provider_in_flash.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flash_card/application/function/send_word_to_gpt.dart';
-import 'package:flash_card/infrastructure/database/database_cards.dart';
+import 'package:flash_card/infrastructure/database/database_books.dart';
 
 class SendWordForm extends HookConsumerWidget {
   const SendWordForm({super.key, required this.carouselController});
@@ -114,7 +114,7 @@ class SendWordForm extends HookConsumerWidget {
               }
 
               final word = inputTextController.text;
-              final wordAlreadyExists = await MyCardDatabase().wordExists(word);
+              final wordAlreadyExists = await MyBookDatabase().wordExists(word);
 
               if (wordAlreadyExists) {
                 // HorizonButtonsDialogを使用して確認ダイアログを表示

@@ -108,12 +108,15 @@ class ColorfulCheckMarks extends ConsumerWidget {
               if (index != -1) {
                 Word oldWord = wordList[index];
                 Word newWord = Word(
+                  id: oldWord.id,
                   word: oldWord.word,
                   meaning: oldWord.meaning,
+                  partOfSpeech: oldWord.partOfSpeech,
                   pronunciation: oldWord.pronunciation,
                   level: oldWord.level,
                   collocation: oldWord.collocation,
                   example: oldWord.example,
+                  derivatives: oldWord.derivatives,
                   origin: oldWord.origin,
                   memorizedType: databaseTypeValue,
                 );

@@ -47,7 +47,7 @@ class CardResult extends ConsumerWidget {
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Text(
-                response.length == 6
+                response.length == 8
                     ? meaningsVertical
                     : '申し訳ございません。\n 予期せぬ不具合が発生しました。',
                 style: const TextStyle(

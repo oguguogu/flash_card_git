@@ -1,7 +1,7 @@
 import 'package:flash_card/application/function/convert_into_memorized_type.dart';
 import 'package:flash_card/domain/models/dummy_words.dart';
 import 'package:flash_card/domain/models/word.dart';
-import 'package:flash_card/infrastructure/database/database_cards.dart';
+import 'package:flash_card/infrastructure/database/database_books.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/coponents/colorful_check_marks.dart';
 import 'package:flash_card/presentation/widgets/main_widgets/sentence.dart';
 import 'package:flash_card/presentation/widgets/main_widgets/vocabulary_book.dart';
@@ -36,8 +36,8 @@ class MyPage extends ConsumerWidget {
     }
 
     return Scaffold(
-      body: FutureBuilder<List<DatabaseCard>>(
-          future: MyCardDatabase().allDatabaseCardEntries,
+      body: FutureBuilder<List<DatabaseBook>>(
+          future: MyBookDatabase().allDatabaseCardEntries,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator();
@@ -55,12 +55,15 @@ class MyPage extends ConsumerWidget {
                 for (int i = 0; i < snapshot.data!.length; i++) {
                   final data = snapshot.data![i];
                   final word = Word(
+                      id: data.id,
                       word: data.word,
                       meaning: data.meaning,
+                      partOfSpeech: data.partOfSpeech,
                       pronunciation: data.pronunciation,
                       level: data.level,
                       collocation: data.collocation,
                       example: data.example,
+                      derivatives: data.derivatives,
                       origin: data.origin,
                       memorizedType: data.memorizedType);
                   words.insert(0, word);
