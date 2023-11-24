@@ -11,7 +11,6 @@ class CardBack extends StatelessWidget {
   Widget build(BuildContext context) {
     String meanings = word.meaning.replaceAll('、', '\n');
     String meaningsVertical = meanings.replaceAll(',', '\n');
-    return CardContent(null,
-        text: meaningsVertical, collocationKey: word.collocation); // 裏面のテキスト
+    return CardContent(null, text: meaningsVertical, idKey: word.id); // 裏面のテキスト
   }
 }

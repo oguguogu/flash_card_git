@@ -13,7 +13,7 @@ class Word {
     required this.memorizedType,
   });
 
-  final int? id;
+  final int id;
   final String word;
   final String meaning;
   final String partOfSpeech;

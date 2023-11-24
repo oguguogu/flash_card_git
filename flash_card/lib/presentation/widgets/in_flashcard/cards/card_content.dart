@@ -9,10 +9,10 @@ import 'package:flash_card/presentation/widgets/common/button/tts_icon_button.da
 
 class CardContent extends ConsumerWidget {
   const CardContent(this.ttsButton,
-      {Key? key, required this.text, required this.collocationKey})
+      {Key? key, required this.text, required this.idKey})
       : super(key: key);
   final String text;
-  final String collocationKey;
+  final int idKey;
   final TtsIconButton? ttsButton;
 
   @override
@@ -20,8 +20,7 @@ class CardContent extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
-    final memorizedType =
-        ref.watch(memorizedTypeProviderFamily(collocationKey));
+    final memorizedType = ref.watch(memorizedTypeProviderFamily(idKey));
     final deleteDBCard = ref.watch(deleteCardProvider);
     final carouselController = ref.watch(jumpCarouselControllerProvider);
     final sliderValue = ref.watch(sliderValueProvider);
@@ -60,8 +59,7 @@ class CardContent extends ConsumerWidget {
         Positioned(
           left: 6,
           top: 2,
-          child: ColorfulCheckMarks(
-              selectedType: memorizedType, collocationKey: collocationKey),
+          child: ColorfulCheckMarks(selectedType: memorizedType, idKey: idKey),
         ),
         Positioned(
           right: 0,
@@ -79,14 +77,11 @@ class CardContent extends ConsumerWidget {
                 ref.read(sliderValueProvider.notifier).state -= 1;
                 carouselController.animateToPage(sliderValue.toInt());
                 ref.read(wordListsProvider.notifier).update((state) {
-                  return state
-                      .where(
-                          (item) => item.word != text && item.meaning != text)
-                      .toList();
+                  return state.where((item) => item.id != idKey).toList();
                   // (item) => item.collocation != collocationKey).toList();
                 });
-                deleteDBCard(text);
-                debugPrint('delete $text');
+                deleteDBCard(idKey);
+                debugPrint('delete $idKey');
               }
             },
             child: Container(

@@ -13,7 +13,7 @@ class CardFront extends StatelessWidget {
     return CardContent(
       TtsIconButton(word: word.word),
       text: word.word,
-      collocationKey: word.collocation,
+      idKey: word.id,
     ); // 表面のテキスト
   }
 }

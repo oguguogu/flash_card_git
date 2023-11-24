@@ -86,20 +86,16 @@ class MyBookDatabase extends _$MyBookDatabase {
     );
   }
 
-  Future<int> updateDatabaseCard(String collocationKey, int memorizedType) {
-    return (update(databaseBooks)
-          ..where((tbl) => tbl.collocation.equals(collocationKey)))
-        .write(
+  Future<int> updateDatabaseCard(int idKey, int memorizedType) {
+    return (update(databaseBooks)..where((tbl) => tbl.id.equals(idKey))).write(
       DatabaseBooksCompanion(
         memorizedType: Value(memorizedType),
       ),
     );
   }
 
-  Future<void> deleteDatabaseCard(String word) {
-    return (delete(databaseBooks)
-          ..where((tbl) => tbl.word.equals(word) | tbl.meaning.equals(word)))
-        .go();
+  Future<void> deleteDatabaseCard(int idKey) {
+    return (delete(databaseBooks)..where((tbl) => tbl.id.equals(idKey))).go();
   }
 }
 

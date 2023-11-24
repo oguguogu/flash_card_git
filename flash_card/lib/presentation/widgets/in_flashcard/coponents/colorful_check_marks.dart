@@ -52,11 +52,11 @@ class StickyMark extends StatelessWidget {
 
 class ColorfulCheckMarks extends ConsumerWidget {
   const ColorfulCheckMarks(
-      {Key? key, required this.selectedType, required this.collocationKey})
+      {Key? key, required this.selectedType, required this.idKey})
       : super(key: key);
 
   final MemorizedType? selectedType;
-  final String collocationKey;
+  final int idKey;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -71,31 +71,28 @@ class ColorfulCheckMarks extends ConsumerWidget {
             type: type,
             isSelected: selectedType == type,
             onTap: () async {
-              final currentType =
-                  ref.read(memorizedTypeProviderFamily(collocationKey));
+              final currentType = ref.read(memorizedTypeProviderFamily(idKey));
 
               //データベースを更新
               if (currentType == type) {
-                ref
-                    .read(memorizedTypeProviderFamily(collocationKey).notifier)
-                    .state = null;
+                ref.read(memorizedTypeProviderFamily(idKey).notifier).state =
+                    null;
                 debugPrint('null');
-                await database.updateDatabaseCard(collocationKey, 0);
+                await database.updateDatabaseCard(idKey, 0);
                 databaseTypeValue = 0;
               } else {
-                ref
-                    .read(memorizedTypeProviderFamily(collocationKey).notifier)
-                    .state = type;
+                ref.read(memorizedTypeProviderFamily(idKey).notifier).state =
+                    type;
                 if (type == MemorizedType.red) {
-                  await database.updateDatabaseCard(collocationKey, 1);
+                  await database.updateDatabaseCard(idKey, 1);
                   debugPrint('red');
                   databaseTypeValue = 1;
                 } else if (type == MemorizedType.yellow) {
-                  await database.updateDatabaseCard(collocationKey, 2);
+                  await database.updateDatabaseCard(idKey, 2);
                   debugPrint('yellow');
                   databaseTypeValue = 2;
                 } else if (type == MemorizedType.blue) {
-                  await database.updateDatabaseCard(collocationKey, 3);
+                  await database.updateDatabaseCard(idKey, 3);
                   debugPrint('blue');
                   databaseTypeValue = 3;
                 }
@@ -103,8 +100,7 @@ class ColorfulCheckMarks extends ConsumerWidget {
 
               //現存するWordListを更新
               List<Word> wordList = ref.read(wordListsProvider);
-              int index = wordList
-                  .indexWhere((word) => word.collocation == collocationKey);
+              int index = wordList.indexWhere((word) => word.id == idKey);
               if (index != -1) {
                 Word oldWord = wordList[index];
                 Word newWord = Word(

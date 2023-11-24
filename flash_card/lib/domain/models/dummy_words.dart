@@ -2,7 +2,7 @@ import 'package:flash_card/domain/models/word.dart';
 
 final dummyWords = [
   const Word(
-    id: null,
+    id: 0,
     word: 'start',
     meaning: "始まる\n 出発する\n 開始する",
     partOfSpeech: "動詞",
@@ -17,7 +17,7 @@ final dummyWords = [
     memorizedType: 0,
   ),
   const Word(
-    id: null,
+    id: -1,
     word: 'memorizing',
     meaning: "記憶する\n 暗記する",
     partOfSpeech: "動詞",

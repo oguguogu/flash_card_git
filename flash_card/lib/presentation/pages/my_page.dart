@@ -74,8 +74,7 @@ class MyPage extends ConsumerWidget {
                   ref.read(wordListsProvider.notifier).state = words;
                   for (int i = 0; i < words.length; i++) {
                     ref
-                        .read(memorizedTypeProviderFamily(words[i].collocation)
-                            .notifier)
+                        .read(memorizedTypeProviderFamily(words[i].id).notifier)
                         .state = memorizedTypes[i];
                   }
                 });
