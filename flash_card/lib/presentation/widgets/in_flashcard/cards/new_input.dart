@@ -1,3 +1,4 @@
+import 'package:flash_card/domain/models/word.dart';
 import 'package:flash_card/presentation/widgets/common/alert_dialog/single_button_dialog.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
@@ -93,7 +94,25 @@ class NewInput extends HookConsumerWidget {
               response[6],
               response[7],
               0);
-          debugPrint('Data added successfully: $result');
+          final word = Word(
+            id: result,
+            word: inputWord,
+            meaning: response[0],
+            partOfSpeech: response[1],
+            pronunciation: response[2],
+            level: response[3],
+            collocation: response[4],
+            example: response[5],
+            derivatives: response[6],
+            origin: response[7],
+            memorizedType: 0,
+          );
+          ref.read(wordListsProvider.notifier).state = [
+            word,
+            ...ref.read(wordListsProvider),
+          ];
+          debugPrint(
+              'Data added successfully: $result and its id is ${word.id}');
           Future.delayed(const Duration(milliseconds: 650), () {
             debugPrint(
                 '4Effect triggered with waitingGpt: $waitingGpt, responseState: $responseState');

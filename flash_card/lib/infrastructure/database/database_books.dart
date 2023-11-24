@@ -106,7 +106,7 @@ class MyBookDatabase extends _$MyBookDatabase {
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
     final dbFolder = await getApplicationDocumentsDirectory();
-    final file = File(p.join(dbFolder.path, 'book_db.sqlite'));
+    final file = File(p.join(dbFolder.path, 'english_db.sqlite'));
     return NativeDatabase(file);
   });
 }

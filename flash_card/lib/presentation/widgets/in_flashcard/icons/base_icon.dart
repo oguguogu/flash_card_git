@@ -21,8 +21,8 @@ class BaseIcon extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               onTap: onTap,
               child: Container(
-                width: 80,
-                height: 80,
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
