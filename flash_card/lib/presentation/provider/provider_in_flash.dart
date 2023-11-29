@@ -22,6 +22,9 @@ final inputWordProvider = StateProvider<String>((ref) => "");
 //GPTからのレスポンスを受け取るためにproviderを使う
 final responseProvider = StateProvider<String?>((ref) => null);
 
+//supabaseに既にあるか判断
+final supabaseExistedProvider = StateProvider<bool>((ref) => true);
+
 //GPTのレスポンスを待つためにproviderを使う。
 final waitingGptProvider = StateProvider<bool>((ref) => false);
 

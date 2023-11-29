@@ -7,6 +7,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flash_card/presentation/provider/provider_in_flash.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/cards/card_input.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/cards/card_result.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class NewInput extends HookConsumerWidget {
   const NewInput({super.key});
@@ -21,6 +22,7 @@ class NewInput extends HookConsumerWidget {
     final errorGpt = ref.watch(errorGptProvider);
     var inputTextController = ref.watch(inputTextControllerProvider);
     final carouselController = ref.watch(jumpCarouselControllerProvider);
+    final supabaseExisted = ref.watch(supabaseExistedProvider);
     final repeatAnimationController = useAnimationController(
       duration: const Duration(milliseconds: 150),
     );
@@ -76,13 +78,6 @@ class NewInput extends HookConsumerWidget {
               '3Effect triggered with waitingGpt: $waitingGpt, responseState: $responseState');
           debugPrint(inputWord);
           debugPrint(response.toString());
-          // List<String> meanings = response[0].split('、');
-          // for (int i = 0; i < meanings.length; i++) {
-          //   meanings[i] = meanings[i].replaceAll('、', '');
-          // }
-          // String meaningsVertical = meanings.join('\n');
-          // String meanings = response[0].replaceAll('、', '\n');
-          // String meaningsVertical = meanings.replaceAll(',', '\n');
           final result = await database.addDatabaseCard(
               inputWord,
               response[0],
@@ -94,6 +89,22 @@ class NewInput extends HookConsumerWidget {
               response[6],
               response[7],
               0);
+          if (!supabaseExisted) {
+            await Supabase.instance.client
+                .from('word_list')
+                .insert(<String, dynamic>{
+              'word': inputWord,
+              'meaning': response[0],
+              'partOfSpeech': response[1],
+              'pronunciation': response[2],
+              'level': response[3],
+              'collocation': response[4],
+              'example': response[5],
+              'derivatives': response[6],
+              'origin': response[7],
+            });
+            ref.read(supabaseExistedProvider.notifier).state = true;
+          }
           final word = Word(
             id: result,
             word: inputWord,
