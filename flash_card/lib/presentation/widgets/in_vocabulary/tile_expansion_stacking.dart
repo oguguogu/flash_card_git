@@ -32,7 +32,7 @@ class TileExpansionStacking extends StatelessWidget {
     return Stack(
       children: [
         const BaseTile(),
-        BaseExpansion(collocation: collocation, example: example),
+        BaseExpansion(word: word, collocation: collocation, example: example),
         Positioned(
             left: screenWidth * 0.01,
             top: 1,
@@ -45,21 +45,29 @@ class TileExpansionStacking extends StatelessWidget {
             style: const TextStyle(fontSize: 8),
           ),
         ),
+        // Positioned(
+        //   left: screenWidth * 0.35,
+        //   top: 35,
+        //   child: Text(
+        //     derivatives!,
+        //     style: const TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
+        //   ),
+        // ),
         Positioned(
           left: screenWidth * 0.01,
-          top: 6,
+          top: 10,
           child: Text(word,
               style:
                   const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
         ),
         Positioned(
           left: screenWidth * 0.01,
-          top: 25,
+          top: 30,
           child: Text("[$pronunciation]", style: const TextStyle(fontSize: 8)),
         ),
         Positioned(
           left: screenWidth * 0.35,
-          top: 6,
+          top: 10,
           child: Text(
             meaning,
             style: const TextStyle(
@@ -68,7 +76,7 @@ class TileExpansionStacking extends StatelessWidget {
         ),
         Positioned(
           right: screenWidth * 0.01,
-          top: 45,
+          top: 85,
           child: Text(origin == " 語源は不明です。" ? "" : origin,
               style: const TextStyle(fontSize: 8)),
         ),

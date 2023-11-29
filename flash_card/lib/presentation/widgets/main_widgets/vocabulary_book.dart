@@ -13,8 +13,8 @@ class VocabularyBook extends HookConsumerWidget {
 
     // 単語リストを7つごとに分割
     final pages = <Widget>[];
-    for (int i = 0; i < wordList.length; i += 7) {
-      int end = (i + 7 < wordList.length) ? i + 7 : wordList.length;
+    for (int i = 0; i < wordList.length; i += 6) {
+      int end = (i + 6 < wordList.length) ? i + 6 : wordList.length;
       var subList = wordList.sublist(i, end);
       pages.add(_buildPage(context, subList, i + 1)); // インデックス + 1 から ID を開始
     }

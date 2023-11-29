@@ -8,7 +8,7 @@ class BaseTile extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return CustomPaint(
-      size: Size(screenWidth, 60), // キャンバスのサイズを調整
+      size: Size(screenWidth, 100), // キャンバスのサイズを調整
       painter: BarChartPainter(),
     );
   }

@@ -15,6 +15,7 @@ class FlashCards extends HookConsumerWidget {
     final itemsList = ref.watch(itemsListProvider);
     final carouselController = ref.watch(jumpCarouselControllerProvider);
     final sliderValue = ref.watch(sliderValueProvider).toInt();
+    final wordList = ref.watch(wordListsProvider);
     final currentPage = useState(2);
     final screenWidth = MediaQuery.of(context).size.width;
 
@@ -27,7 +28,7 @@ class FlashCards extends HookConsumerWidget {
           Padding(
             padding: EdgeInsets.only(left: screenWidth * 0.6), // ここで左側のパディングを調整
             child: Text(
-              "$sliderValue/50",
+              "$sliderValue/ ${wordList.length}",
               style: const TextStyle(
                 fontSize: 16.0, // フォントサイズ
                 fontWeight: FontWeight.bold, // フォントの太さ
