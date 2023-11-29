@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flash_card/presentation/provider/provider_in_common.dart';
-import 'package:flash_card/presentation/provider/provider_in_flash.dart';
+import 'package:flash_card/presentation/provider/provider_common.dart';
+import 'package:flash_card/presentation/provider/provider_flash.dart';
 import 'package:flash_card/domain/models/word.dart';
 
 final memorizedTypeProvider = StateProvider<MemorizedType?>((ref) => null);

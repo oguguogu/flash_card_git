@@ -1,4 +1,4 @@
-import 'package:flash_card/presentation/provider/provider_in_flash.dart';
+import 'package:flash_card/presentation/provider/provider_flash.dart';
 import 'package:flash_card/presentation/widgets/in_vocabulary/tile_expansion_stacking.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

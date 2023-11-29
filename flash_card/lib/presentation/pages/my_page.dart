@@ -9,8 +9,8 @@ import 'package:flash_card/presentation/widgets/common/bottom_nav_bar/my_bottom_
 import 'package:flash_card/presentation/widgets/main_widgets/flash_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flash_card/presentation/provider/provider_in_flash.dart';
-import 'package:flash_card/presentation/provider/provider_in_common.dart';
+import 'package:flash_card/presentation/provider/provider_flash.dart';
+import 'package:flash_card/presentation/provider/provider_common.dart';
 
 class MyPage extends ConsumerWidget {
   const MyPage({super.key});

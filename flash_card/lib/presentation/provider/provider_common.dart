@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flash_card/presentation/provider/provider_in_flash.dart';
+import 'package:flash_card/presentation/provider/provider_flash.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/coponents/colorful_check_marks.dart';
 
 final deleteCardProvider = Provider((ref) {

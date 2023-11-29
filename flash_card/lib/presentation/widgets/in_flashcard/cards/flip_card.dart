@@ -3,7 +3,7 @@ import 'package:flash_card/domain/models/word.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/cards/card_back.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/cards/card_front.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flash_card/presentation/provider/provider_in_flash.dart';
+import 'package:flash_card/presentation/provider/provider_flash.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'dart:math' as math;
 

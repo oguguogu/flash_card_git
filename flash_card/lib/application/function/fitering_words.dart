@@ -1,4 +1,4 @@
-import 'package:flash_card/presentation/provider/provider_in_common.dart';
+import 'package:flash_card/presentation/provider/provider_common.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

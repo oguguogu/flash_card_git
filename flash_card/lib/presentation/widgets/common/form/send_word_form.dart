@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flash_card/presentation/widgets/common/alert_dialog/horizon_buttons_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flash_card/presentation/provider/provider_in_flash.dart';
+import 'package:flash_card/presentation/provider/provider_flash.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flash_card/application/function/send_word_to_gpt.dart';
 import 'package:flash_card/infrastructure/database/database_books.dart';
@@ -15,7 +15,6 @@ class SendWordForm extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final formKey = GlobalKey<FormState>();
     final inputTextController = ref.watch(inputTextControllerProvider);
-    final RegExp alphaPattern = RegExp(r'^[a-zA-Z\s]+$');
     final focusNode = useFocusNode();
     final theme = Theme.of(context);
 
@@ -39,6 +38,8 @@ class SendWordForm extends HookConsumerWidget {
       focusNode.addListener(onFocusChange);
       return () => focusNode.removeListener(onFocusChange);
     }, [focusNode]);
+
+    final RegExp alphaPattern = RegExp(r'^[a-zA-Z]+([-\s][a-zA-Z]+)*$');
 
     return Padding(
       padding: const EdgeInsets.all(16.0),

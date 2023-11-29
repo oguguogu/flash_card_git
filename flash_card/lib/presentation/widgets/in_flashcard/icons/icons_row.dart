@@ -1,6 +1,6 @@
 import 'package:flash_card/application/function/fitering_words.dart';
-import 'package:flash_card/presentation/provider/provider_in_common.dart';
-import 'package:flash_card/presentation/provider/provider_in_flash.dart';
+import 'package:flash_card/presentation/provider/provider_common.dart';
+import 'package:flash_card/presentation/provider/provider_flash.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/icons/base_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

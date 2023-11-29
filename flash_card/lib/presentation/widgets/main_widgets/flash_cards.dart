@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flash_card/presentation/widgets/common/form/send_word_form.dart';
-import 'package:flash_card/presentation/provider/provider_in_flash.dart';
+import 'package:flash_card/presentation/provider/provider_flash.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/coponents/under_slider.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/icons/icons_row.dart';
 import 'package:flutter/material.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flash_card/domain/models/dummy_words.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flash_card/presentation/provider/provider_in_common.dart';
+import 'package:flash_card/presentation/provider/provider_common.dart';
 import 'package:flash_card/domain/models/word.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/cards/flip_card.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/cards/new_input.dart';

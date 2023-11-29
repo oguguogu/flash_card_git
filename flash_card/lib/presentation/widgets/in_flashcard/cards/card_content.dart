@@ -2,8 +2,8 @@ import 'package:flash_card/presentation/widgets/common/alert_dialog/horizon_butt
 import 'package:flutter/material.dart';
 import 'package:flash_card/presentation/theme/sizes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flash_card/presentation/provider/provider_in_common.dart';
-import 'package:flash_card/presentation/provider/provider_in_flash.dart';
+import 'package:flash_card/presentation/provider/provider_common.dart';
+import 'package:flash_card/presentation/provider/provider_flash.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/coponents/colorful_check_marks.dart';
 import 'package:flash_card/presentation/widgets/common/button/tts_icon_button.dart';
 

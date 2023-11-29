@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flash_card/presentation/provider/provider_in_flash.dart';
+import 'package:flash_card/presentation/provider/provider_flash.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/cards/card_input.dart';
 import 'package:flash_card/presentation/widgets/in_flashcard/cards/card_result.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
